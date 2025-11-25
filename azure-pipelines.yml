@@ -15,13 +15,15 @@ steps:
   inputs:
     SonarQube: 'SonarQube'
     scannerMode: 'Maven'
+    projectKey: 'my-project'
+    projectName: 'my-project'
 
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
+    jdkVersionOption: '17'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
@@ -32,5 +34,6 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     failTaskOnFailedTests: true
+
 
 
