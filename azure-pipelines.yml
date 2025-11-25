@@ -1,3 +1,7 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+
 trigger:
   - master
 
@@ -8,7 +12,7 @@ steps:
 - task: SonarQubePrepare@7
   inputs:
     SonarQube: 'SonarQube'
-    scannerMode: 'Other'
+    scannerMode: 'other'
 
 - task: Maven@4
   inputs:
@@ -20,7 +24,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install sonar:sonar'
-
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
