@@ -12,9 +12,9 @@ pool:
 steps:
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'My_SonarQube'
+    SonarQube: 'SonarQube'
     scannerMode: 'Other'
-- task: Maven@3
+- task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
