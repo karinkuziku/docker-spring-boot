@@ -12,22 +12,26 @@ pool:
 
 steps:
 - task: SonarQubePrepare@7
-  displayName: "Prepare SonarQube"
   inputs:
     SonarQube: 'SonarQube'
-    scannerMode: 'Maven'
-    projectKey: 'demo'
-    projectName: 'demo'
+    scannerMode: 'other'
 
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.17'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install sonar:sonar'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    failTaskOnFailedTests: true
 
 
 
