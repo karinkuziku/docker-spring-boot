@@ -14,11 +14,11 @@ steps:
   inputs:
     SonarQube: 'SonarQube'
     scannerMode: 'Other'          # IMPORTANT: Avoid Maven mode entirely
-    extraProperties: |
-      sonar.projectKey=demo
-      sonar.projectName=demo
-      sonar.sources=src
-      sonar.java.binaries=**/target/classes
+    # extraProperties: |
+    #   sonar.projectKey=demo
+    #   sonar.projectName=demo
+    #   sonar.sources=src
+    #   sonar.java.binaries=**/target/classes
 
 # =============================
 # 2. Build with Maven
