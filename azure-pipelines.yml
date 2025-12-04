@@ -30,6 +30,8 @@ steps:
 - task: SonarQubePublish@7
   inputs:
     pollingTimeoutSec: '300'
+  continueOnError: false
+    
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
