@@ -24,6 +24,12 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean install sonar:sonar'
+- task: SonarQubeAnalyze@7
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300'
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
