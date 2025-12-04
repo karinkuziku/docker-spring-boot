@@ -30,7 +30,7 @@ steps:
 - task: SonarQubePublish@7
   inputs:
     pollingTimeoutSec: '300'
-  continueOnError: false
+    failOnQualityGateFailure: true
     
 - task: PublishTestResults@2
   inputs:
